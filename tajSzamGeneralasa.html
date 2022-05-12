@@ -1,0 +1,76 @@
+<html>
+	<!--		% -> mod
+				"!"= -> !==
+				css -> bootstrap
+				bootstrap class-okkal formázni a 2 vezérlőt (szín, border)
+		bottstrap-en tab komponenst használni és annak az első fülére betenni "ezt az egészet"
+		+1 fül ahol gombnyomásra generálunk 10 érvényes TAJ számot, ezeket console.log-olni.
+		Az 1. fülre kerüljön egy 2. gomb is, ami a meglévő gomb funkcióival bír + elfogadja az input boxot üresen is. (console.log{success.true})-->
+
+    <head>
+      	<meta charset = "utf-8">
+      	<title></title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+		header {text-align: center;}
+		div {	text-align: center;
+			vertical-align: middle;
+			padding: 10px}
+		label {	width: 450px;
+			height: 10px}
+	</style>
+    </head>
+
+    <body>
+	<header>
+		<div class="text">
+			<div class="text-md-4">
+			<h1>TAJ szám <span class="badge badge-secondary">új funkció</span></h1>
+		</div>
+	</header>
+		<div class="tab">
+  			<button class="tablinks" onclick="parent.location='index.html'">TAJ szám ellenőrzése</button>
+  			<button class="tablinks" onclick="parent.location='tajSzamGeneralasa.html'">TAJ szám generálása</button>
+		</div>
+
+	<div class="input">
+		<input type="button" id="go" class="btn btn-primary" value="Generálás" onclick="writeStr()">
+		<div class="input-md-4">
+	</div>
+	
+	<label>
+	 	<div class="form">
+    			<label for="Textarea1"></label>
+	    		<textarea class="form-control" id="Textarea1" rows="11"></textarea>
+	 	</div>
+	</label>	
+
+	<script>
+
+	//TAJ számok generálása
+
+		var textarea = document.getElementById('myConsole');		
+
+		function genStr(){
+			const characters ='0123456789';
+			const result = Math.random().toString().substring(2, 10);
+
+			var sumResult = result[0]*3+result[1]*7+result[2]*3+result[3]*7+result[4]*3+result[5]*7+result[6]*3+result[7]*7;
+			var digitNine = sumResult %=10
+			var nineDigits = result + digitNine;
+			
+			console.log(nineDigits);
+		}
+
+		function writeStr() {
+			for (i = 0; i < 10; i++){
+			genStr();
+			}
+		}
+		
+		//ide jön a "console.log to Textarea1"
+
+	</script>
+    </body>
+</html>
